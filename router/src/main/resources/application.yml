@@ -1,0 +1,30 @@
+zuul:
+#  host:
+#    connect-timeout-millis: 150000 #HTTP连接超时要比Hystrix的大
+#    socket-timeout-millis: 600000   #socket超时
+  routes:
+    demo:
+      path: /demo/**
+      serviceId: demo
+      sensitiveHeaders: ass
+      strip-prefix: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8083/eureka
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+server:
+  port: 8086
+spring:
+  application:
+    name: router
+
+#    socket超时时间，如果使用service-id方式是不用配置的
+#    socket-timeout-millis: 3000
+
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000

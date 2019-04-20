@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: demo
+
+server:
+  port: 8089
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8083/eureka,http://127.0.0.1:8081/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
